@@ -15,11 +15,11 @@ if sys.platform == "win32":
 async def main():
     account = ACCOUNTS["bitget1"]
 
-    margin_mode = "isolated"  # isolated or crossed
-    exchange_leverage = 3
+    margin_mode = "crossed"  # isolated or crossed
+    exchange_leverage = 5
 
     tf = "1h"
-    size_leverage = 3
+    size_leverage = 5
     sl = 0.3
     params = {
         "BTC/USDT": {
