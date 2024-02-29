@@ -13,7 +13,7 @@ if sys.platform == "win32":
 
 
 async def main():
-    account = ACCOUNTS["bitget1"]
+    account = ACCOUNTS["bitget2"]
 
     margin_mode = "crossed"  # isolated or crossed
     exchange_leverage = 5
@@ -1360,6 +1360,7 @@ async def main():
         tasks = [exchange.get_last_ohlcv(pair, tf, 50) for pair in pairs]
         dfs = await asyncio.gather(*tasks)
         df_list = dict(zip(pairs, dfs))
+        df_list = df_list.iloc[::-1]
 
         for pair in df_list:
             current_params = params[pair]
