@@ -1343,6 +1343,7 @@ async def main():
                 del params[pair]
 
         pairs = list(params.keys())
+        pairs = pairs[::-1]
 
         try:
             print(f"Setting {margin_mode} x{exchange_leverage} on {len(pairs)} pairs...")
@@ -1360,7 +1361,6 @@ async def main():
         tasks = [exchange.get_last_ohlcv(pair, tf, 50) for pair in pairs]
         dfs = await asyncio.gather(*tasks)
         df_list = dict(zip(pairs, dfs))
-        df_list = df_list.iloc[::-1]
 
         for pair in df_list:
             current_params = params[pair]
