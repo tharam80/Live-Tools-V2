@@ -22,7 +22,7 @@ async def main():
     size_leverage = 5
     sl = 0.3
     params = {
-         "BTC/USDT": {
+        "BTC/USDT": {
             "src": "close",
             "ma_base_window": 7,
             "envelopes": [0.07, 0.1, 0.15],
